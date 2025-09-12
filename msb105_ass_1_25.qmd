@@ -1,6 +1,6 @@
 ---
 title: "Is reproducibility good enough?"
-author: "Author Name"
+author: "Frida Alendal"
 date: last-modified
 date-format: "dddd D MMM, YYYY"
 csl: apa7.csl
@@ -22,6 +22,10 @@ abstract: "A very short abstract. Put the abstract text here. One or two paragra
 ## Introduction
 
 What is this paper about?
+
+Reproducibility and replicability lie at the core of modern scientific practice. Scientific knowledge is built on the assumption that results can be verified, either by reusing the same data and methods (reproducibility) or by conducting new studies with comparable designs (replicability). However, numerous studies ans large-scale projects have demonstarted that a substantial share of published findings cannot be reproduced or replicated (McNutt, 2014; loannidis, 2005). This phenomenon has contributed to what is often referred to as the "replication crisis", initially recognized in psychology but increasingly evident across various scientific disciplines.
+
+This assignment addresses the importance of reproducibility and replicability in scientific research. 
 What is discussed?
 Why is it of any consequence?
 
