@@ -27,7 +27,13 @@ Reproducibility and replicability lie at the core of modern scientific practice.
 
 This assignment discusses what reproducibility entails, why it os a fundamental requirement for scientific progress, and the consequences when this ideal is not fulfilled. Furthermore, it highlights key challenges such as publication bias, type 1 errors, and incentive structures in academia, before turning to possible solutions. Among these, the use of open data and code archives, as well as the development of "computable documents" through tools such as R Markdown and RStudio, will be emphasized. The purpose is to demonstrate how technological and methodological innovations can support a more robust, transparent, and trustworthy scientific practice.
 
+
 ## Literature review
+
+Reproducibility is often described as a cornerstone of scientific progress, yet there is no single agreed-upon definition of the concept. According to @goodman2016, reproducibility refers to the ability to obtain the same results when re-analysing the original data using the same methods. Replicability, on the other hand, requires that new data collected under the same conditions yield consistent findings (see also @nosek2015). This distinction in important, since much of the ongoing debate in the so-called "replication crisis" relates not only to computational reproducibility but also to the broader credibility of research results. 
+
+One major challenge to reproducibility is **Publication bias**. Studies with statistically significant or "positive" results are more likley to be published, whereas null finding often remain in the "filer drawer" [@rosenthal1979]. As a consequence, the published literature can become skewed towards type 1 errors, that is, false positives where the null hypothesis id incorrectly rejected [@simmons2011]. For instance, @ioannidis2005 provocatively argued that "most published research findings are false", a claim supported by multiple large replication projects. 
+
 
 Smart stuff from others about the topic.
 
