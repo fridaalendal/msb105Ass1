@@ -49,6 +49,8 @@ On the other hand it's claimed that bla bla [@barbalorenaa.2018; @bartlett2008].
 ## Discussion of the reseach question
 A central question is whether replicability should be the norm. From a philosophical perspective, science recuires replication to establish generalisable knowledge. Without replicability, findings remain anecdotal. However, demanding universal replicability may be too ambitious in the short term. contextual differences, limited resources, and methodological diversity make replication challenging in fields such as psychology and biomedicine. It may therefore be more practical to promote transparency and reproducibility as immediate priorities, while striving for replicability as a long-term goal. 
 
+Technological tools such as Quarto documents offer significant progress for reproducibility. By integrating code, data, text, and results in a single file, Quarto ensures that analyses can be rerun and verified by others. This reduces the risks of documented steps, selective reporting, or errors that weaken reproduceibility. Moreover, Quarto´s ability to output to multiple formats makes it easier to share reproduceible research across disciplines. However, while Quarto improves computational reproducibility, it cannot guarantee replicability, which requries new data and independent confirmation. 
+
 -   Should replicability be the norm or is this to much to ask for now?
 -   Can Quarto documents help with reproducibility?
 -   What problems remains and how can these be solved?
