@@ -53,6 +53,7 @@ Technological tools such as Quarto documents offer significant progress for repr
 
 Several challenges remain unresolved. Publication bias to distort the scientific record, while incentive structures in academia reward novelty over verification. Replication studies are rarely valued or published, reducing motivation for researchers to attempt them. Technical barriers such as missing metdata, proprietary software, and inadequate infrastructure further hinder accessibility. Addressing these issues requires both cultural change and technical solutions. Policies mandating data and code sharing, preregistration of studies, and recognition of replication work as valuable contributions are crucial steps forward.
 
+Ultimately, a combination of open science practices and technological innovation offers the best path ahead. While replicability may not yet be universal, strengthening reproducibility thorugh transparency and tools like Quarto can helprebuild trust and credibility in research.
 
 
 
