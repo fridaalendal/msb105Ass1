@@ -64,8 +64,7 @@ Ultimately, a combination of open science practices and technological innovation
 
 Reproducibility and replicability are fundamental to scientific progress, yet the replication crisis has revealed major shortcomings across disciplines. Problems such as publication bias, type I errors, and inadequate data sharing undermine trust in research, while cultural and institutional incentives often work against replication. At the same time, new practices and technologies are helping to address these challenges. Open data initiatives, data citation standards, and dynamic documents in R and Quarto make it easier to reproduce research, thereby increasing transparency and accountability. 
 
-This paper concludes that while replicability should remain an aspirational goal, reproducibility must be treated as the minimum standard. By combining cultural reforms with technological tools, the scientific community can take meaningful steps to restore credibility and ensure that research provides a reliable foundation for future knowledge.
-
+This paper concludes that while replicability should remain an aspirational goal, reproducibility must be treated as the minimum standard. By combining cultural reforms with technological tools, the scientific community can take meaningful steps to restore credibility and ensure that research provides a reliable foundation for future knowledge. Future improvements in training, incentives, and infrastructure will be crucial to ensure that reproducibility becomes not just a requirement, but a natural part of scientific culture. 
 
 
 ### Appendix: R Session Info
