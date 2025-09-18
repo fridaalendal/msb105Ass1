@@ -23,7 +23,7 @@ abstract: "This paper explores the importance of reproducibility and replicabili
 ## Introduction
 Reproducibility and replicability lie at the core of modern scientific practice. Scientific knowledge is built on the assumption that results can be verified, either by reusing the same data and methods (reproducibility) or by conducting new studies with comparable designs (replicability). However, numerous studies and large-scale projects have demonstrated that a substantial share of published findings cannot be reproduced or replicated, as argued by @ioannidis2005. This phenomenon has contributed to what is often referred to as the "replication crisis", initially recognized in psychology but increasingly evident across various scientific disciplines.
 
-This assignment discusses what reproducibility entails, why it is a fundamental requirement for scientific progress, and the consequences when this ideal is not fulfilled. Furthermore, it highlights key challenges such as publication bias, type I errors, and incentive structures in academia, before turning to possible solutions. Among these, the use of open data and code archives, as well as the development of "computable documents" through tools such as R Markdown and RStudio, will be emphasized. The purpose is to demonstrate how technological and methodological innovations can support a more robust, transparent, and trustworthy scientific practice.
+This assignment discusses what reproducibility entails, why it is a fundamental requirement for scientific progress, and the consequences when this ideal is not fulfilled. Furthermore, it highlights key challenges such as publication bias, type I errors, and incentive structures in academia, before turning to possible solutions. Among these, the use of open data and code archives, as well as the development of "computable documents" through tools such as R Markdown and RStudio, will be emphasized. The purpose is to demonstrate how technological and methodological innovations can support a more robust, transparent, and trustworthy scientific practice. This assignment therefore asks whether reproducibility alone is good enough, or whether replicability should be demanded at the standard.
 
 
 ## Literature review
@@ -50,7 +50,7 @@ At the project level, using scripted data ingestion, tidy transformations, and d
 The literature points to a set of common principles that support more credible and transparent research. These include stronger incentives for openness, reliable access to data, the use of executable and literate workflows, clear standards for data and metadata, and the adoption of reproducible tools such as version control and containerization. Together, these measures help address well-known threats such as selective reporting and analytic flexibility, and they contribute to closing the gap between nominal and actual reproducibility. 
 
 
-## Discussion of the reseach question
+## Discussion of the research question
 As outlined in the literature review, reproducibility and replicability are closely connected but not identical. A central question is whether replicability should be the norm. From a philosophical perspective, replication is essential to establish generalisable knowledge. Without it, findings risk remaining anecdotal. However, demanding universal replicability may be too ambitious in the short term. Contextual differences, limited resources, and methodological diversity make replication challenging in fields such as psychology and biomedicine. It may therefore be more practical to promote transparency and reproducibility as immediate priorities, while striving for replicability as a long-term goal. 
 
 Technological tools such as Quarto documents offer significant progress for reproducibility. By integrating code, data, text, and results in a single file, Quarto ensures that analyses can be rerun and verified by others. This reduces the risks of  selective reporting, or errors that weaken credibility. Moreover, Quarto´s ability to output to multiple formats makes it easier to share reproducible research across disciplines. However, while Quarto improves computational reproducibility, it cannot guarantee replicability, which requires new data and independent confirmation. 
@@ -67,9 +67,12 @@ Reproducibility and replicability are fundamental to scientific progress, yet th
 This paper concludes that while replicability should remain an aspirational goal, reproducibility must be treated as the minimum standard. By combining cultural reforms with technological tools, the scientific community can take meaningful steps to restore credibility and ensure that research provides a reliable foundation for future knowledge.
 
 
+
+### Appendix: R Session Info
+
+```{r}
+sessionInfo()
+
+```
+
 ## References
-
-and
-
--   Version number and reference to packages used
--   R version used

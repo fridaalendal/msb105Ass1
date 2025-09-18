@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -84,7 +118,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Wednesday 17 Sep, 2025</p>
+      <p class="date">Thursday 18 Sep, 2025</p>
     </div>
   </div>
   
@@ -105,7 +139,7 @@ div.csl-indent {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Reproducibility and replicability lie at the core of modern scientific practice. Scientific knowledge is built on the assumption that results can be verified, either by reusing the same data and methods (reproducibility) or by conducting new studies with comparable designs (replicability). However, numerous studies and large-scale projects have demonstrated that a substantial share of published findings cannot be reproduced or replicated, as argued by <span class="citation" data-cites="ioannidis2005">Ioannidis (<a href="#ref-ioannidis2005" role="doc-biblioref">2005</a>)</span>. This phenomenon has contributed to what is often referred to as the “replication crisis”, initially recognized in psychology but increasingly evident across various scientific disciplines.</p>
-<p>This assignment discusses what reproducibility entails, why it is a fundamental requirement for scientific progress, and the consequences when this ideal is not fulfilled. Furthermore, it highlights key challenges such as publication bias, type I errors, and incentive structures in academia, before turning to possible solutions. Among these, the use of open data and code archives, as well as the development of “computable documents” through tools such as R Markdown and RStudio, will be emphasized. The purpose is to demonstrate how technological and methodological innovations can support a more robust, transparent, and trustworthy scientific practice.</p>
+<p>This assignment discusses what reproducibility entails, why it is a fundamental requirement for scientific progress, and the consequences when this ideal is not fulfilled. Furthermore, it highlights key challenges such as publication bias, type I errors, and incentive structures in academia, before turning to possible solutions. Among these, the use of open data and code archives, as well as the development of “computable documents” through tools such as R Markdown and RStudio, will be emphasized. The purpose is to demonstrate how technological and methodological innovations can support a more robust, transparent, and trustworthy scientific practice. This assignment therefore asks whether reproducibility alone is good enough, or whether replicability should be demanded at the standard.</p>
 </section>
 <section id="literature-review" class="level2">
 <h2 class="anchored" data-anchor-id="literature-review">Literature review</h2>
@@ -138,8 +172,8 @@ div.csl-indent {
 <p>The literature points to a set of common principles that support more credible and transparent research. These include stronger incentives for openness, reliable access to data, the use of executable and literate workflows, clear standards for data and metadata, and the adoption of reproducible tools such as version control and containerization. Together, these measures help address well-known threats such as selective reporting and analytic flexibility, and they contribute to closing the gap between nominal and actual reproducibility.</p>
 </section>
 </section>
-<section id="discussion-of-the-reseach-question" class="level2">
-<h2 class="anchored" data-anchor-id="discussion-of-the-reseach-question">Discussion of the reseach question</h2>
+<section id="discussion-of-the-research-question" class="level2">
+<h2 class="anchored" data-anchor-id="discussion-of-the-research-question">Discussion of the research question</h2>
 <p>As outlined in the literature review, reproducibility and replicability are closely connected but not identical. A central question is whether replicability should be the norm. From a philosophical perspective, replication is essential to establish generalisable knowledge. Without it, findings risk remaining anecdotal. However, demanding universal replicability may be too ambitious in the short term. Contextual differences, limited resources, and methodological diversity make replication challenging in fields such as psychology and biomedicine. It may therefore be more practical to promote transparency and reproducibility as immediate priorities, while striving for replicability as a long-term goal.</p>
 <p>Technological tools such as Quarto documents offer significant progress for reproducibility. By integrating code, data, text, and results in a single file, Quarto ensures that analyses can be rerun and verified by others. This reduces the risks of selective reporting, or errors that weaken credibility. Moreover, Quarto´s ability to output to multiple formats makes it easier to share reproducible research across disciplines. However, while Quarto improves computational reproducibility, it cannot guarantee replicability, which requires new data and independent confirmation.</p>
 <p>Several challenges remain unresolved. Publication bias continues to distort the scientific record, while incentive structures in academia reward novelty over verification. Replication studies are rarely valued or published, reducing researchers´ motivation to attempt them. Technical barriers such as missing metadata, proprietary software, and inadequate infrastructure further hinder accessibility. Addressing these issues requires both cultural change and technical solutions. Policies mandating data and code sharing, preregistration of studies, and recognition of replication work as valuable contributions are crucial steps forward.</p>
@@ -149,14 +183,39 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>Reproducibility and replicability are fundamental to scientific progress, yet the replication crisis has revealed major shortcomings across disciplines. Problems such as publication bias, type I errors, and inadequate data sharing undermine trust in research, while cultural and institutional incentives often work against replication. At the same time, new practices and technologies are helping to address these challenges. Open data initiatives, data citation standards, and dynamic documents in R and Quarto make it easier to reproduce research, thereby increasing transparency and accountability.</p>
 <p>This paper concludes that while replicability should remain an aspirational goal, reproducibility must be treated as the minimum standard. By combining cultural reforms with technological tools, the scientific community can take meaningful steps to restore credibility and ensure that research provides a reliable foundation for future knowledge.</p>
+<section id="appendix-r-session-info" class="level3">
+<h3 class="anchored" data-anchor-id="appendix-r-session-info">Appendix: R Session Info</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.5.1 (2025-06-13)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.6
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: Europe/Oslo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] compiler_4.5.1    fastmap_1.2.0     cli_3.6.5         tools_4.5.1      
+ [5] htmltools_0.5.8.1 rstudioapi_0.17.1 yaml_2.3.10       rmarkdown_2.29   
+ [9] knitr_1.50        jsonlite_2.0.0    xfun_0.53         digest_0.6.37    
+[13] rlang_1.1.6       evaluate_1.0.5   </code></pre>
+</div>
+</div>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>and</p>
-<ul>
-<li>Version number and reference to packages used</li>
-<li>R version used</li>
-</ul>
+</section>
+<section id="references" class="level2 unnumbered">
+
 
 </section>
 
