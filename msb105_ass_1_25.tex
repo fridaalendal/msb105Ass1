@@ -1,0 +1,621 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  a4paper,
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{british}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage[english]{selnolig} % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Is reproducibility good enough?},
+  pdfauthor={Frida Alendal},
+  pdflang={en-GB},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Is reproducibility good enough?}
+\author{Frida Alendal}
+\date{Sunday 21 Sep, 2025}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+This paper explores the importance of reproducibility and replicability
+in scientific research. It reviews key challenges such as publication
+bias, type I errors, and the replication crisis, while also considering
+solutions including open science practices and computable documents like
+Quarto. The discussion argues that replicability is an aspirational
+goal, but reproducibility must serve as the minimum standard to maintain
+credibility and trust in science.
+\end{abstract}
+
+
+\section{Introduction}\label{introduction}
+
+Reproducibility and replicability lie at the core of modern scientific
+practice. Scientific knowledge is built on the assumption that results
+can be verified, either by reusing the same data and methods
+(reproducibility) or by conducting new studies with comparable designs
+(replicability). However, numerous studies and large-scale projects have
+demonstrated that a substantial share of published findings cannot be
+reproduced or replicated, as argued by Ioannidis (2005). This phenomenon
+has contributed to what is often referred to as the ``replication
+crisis'', initially recognized in psychology but increasingly evident
+across various scientific disciplines.
+
+This assignment discusses what reproducibility entails, why it is a
+fundamental requirement for scientific progress, and the consequences
+when this ideal is not fulfilled. Furthermore, it highlights key
+challenges such as publication bias, type I errors, and incentive
+structures in academia, before turning to possible solutions. Among
+these, the use of open data and code archives, as well as the
+development of ``computable documents'' through tools such as R Markdown
+and RStudio, will be emphasized. The purpose is to demonstrate how
+technological and methodological innovations can support a more robust,
+transparent, and trustworthy scientific practice. This assignment
+therefore asks whether reproducibility alone is good enough, or whether
+replicability should be demanded at the standard.
+
+\section{Literature review}\label{literature-review}
+
+\subsection{Reproducibility and the credibility of scientific
+evidence}\label{reproducibility-and-the-credibility-of-scientific-evidence}
+
+Peng (2011) emphasizes that reproducibility, the ability to recompute
+results given the same data and code, is a central benchmark for
+credible science, particularly when full, independent replication is
+infeasible. This view is also supported by Goodman et al. (2016), who
+stresses that reproducibility serves as the minimum requirement for
+credible claims. Evidence from psychology shows substantial gaps, with
+large-scale projects revealing that only a fraction of classic effects
+replicate under high-powered, pre-registered protocols (Collaboration,
+2015; Klein et al., 2018). Critics such as Ioannidis (30.aug.2005) have
+long argued that small studies and methodological flexibility and
+selective reporting inflate false-positive rates, highlighting the
+broader replication crisis that undermines trust in research.
+
+\subsection{Open research culture and policy
+responses}\label{open-research-culture-and-policy-responses}
+
+Nosek et al. (2015) introduce the Transparency and Openness Promotion
+(TOP) guidelines, which outline practices such as data sharing,
+preregistration, and replication. At the policy level, European
+initiatives have promoted access to publications and data, accelerating
+alignment around FAIR principles and durable citation (Starr et al.,
+2015). Open access growth further increases visibility and reuse, with
+measurable citation advantages (Piwowar et al., 2018). Funders also
+emphasize that reproducibility is part of research integrity, and
+failure to provide data or code may be treated as misconduct (National
+Academies of Sciences, Engineering, and Medicine, 2019).
+
+\subsection{Computational reproducibility: workflows, tooling, and
+literate
+programming}\label{computational-reproducibility-workflows-tooling-and-literate-programming}
+
+Because so much modern inference is computational, transparent workflows
+are essential (Peng, 2011). Literate programming, first described by
+Knuth (1984), weaves prose and code so that analyses are executable and
+inspectable. In the R ecosystem, dynamic documents such as R Markdown
+integrate narrative, code, and outputs (Allaire et al., 2020; Xie,
+2015). These tools reduce analytic drift and align with good scientific
+writing practices (Gentleman, 2005). More recently, Quarto has expanded
+these possibilities by combining code, data, text, and results in a
+single source document, making analyses easier to reproduce and share
+across disciplines (Posit Software, PBC, 2023).
+
+\subsection{Data sharing, identifiers, and
+metadata}\label{data-sharing-identifiers-and-metadata}
+
+Reproducibility depends on access to the exact inputs and sufficient
+contextual metadata. Persistent identifiers such as DOIs, along with
+machine-actionable metadata, enable stable citation and automated reuse
+(Brase, 2009). Clear, consistent data organization further reduces
+clerical errors and supports secondary analysis (Broman \& Woo, 2018).
+To improve consistency, the FAIR guidelines highlight the importance of
+standardized schema and minimal reporting (Wilkinson et al., 2016).
+
+\subsection{Discipline-specific lessons and exemplar
+domains}\label{discipline-specific-lessons-and-exemplar-domains}
+
+High-throughput fields such as genomics emphasized early the need for
+sharable pipelines and transparent procedures (Golub et al., 1999).
+These lessons generalize to other disciplines, where reproducible
+compendia and executable papers help bridge the gap between static
+publications and live analyses (Markowetz, 2015). Community surveys
+underline that reproducibility should not require prohibitive effort,
+and reproducibility cultures differ between disciplines, with
+computational biology moving faster than psychology or economics
+(Stodden et al., 2016).
+
+\subsection{Putting it into practice in
+R}\label{putting-it-into-practice-in-r}
+
+At the project level, using scripted data ingestion, tidy
+transformations, and declarative visualization encourages clarity and
+reduces off-pipeline edits (Wickham \& Grolemund, 2016). Dynamic
+documents (R Markdown) compiled via knitr allow text, code, and results
+to be integrated in a single source, which strengthens reproducibility
+(Xie, 2015). This is further supported by documenting session info,
+pinning package versions, and using reproducible environments such as
+renv or containers (R Core Team, 2020). Journals have also highlighted
+the practical value of publishing working code, even if imperfect, as it
+enables others to verify and build upon results (Barnes, 2010). More
+recently, reproducibility has been extended through platforms that allow
+complete notebooks and environments to be shared online (Team, 2019).
+
+\subsection{Summary}\label{summary}
+
+The literature points to a set of common principles that support more
+credible and transparent research. These include stronger incentives for
+openness, reliable access to data, the use of executable and literate
+workflows, clear standards for data and metadata, and the adoption of
+reproducible tools such as version control and containerization.
+Together, these measures help address well-known threats such as
+selective reporting and analytic flexibility, and they contribute to
+closing the gap between nominal and actual reproducibility.
+
+\section{Discussion of the research
+question}\label{discussion-of-the-research-question}
+
+As outlined in the literature review, reproducibility and replicability
+are closely connected but not identical. A central question is whether
+replicability should be the norm. From a philosophical perspective,
+replication is essential to establish generalisable knowledge. Without
+it, findings risk remaining anecdotal. However, demanding universal
+replicability may be too ambitious in the short term. Contextual
+differences, limited resources, and methodological diversity make
+replication challenging in fields such as psychology and biomedicine. It
+may therefore be more practical to promote transparency and
+reproducibility as immediate priorities, while striving for
+replicability as a long-term goal.
+
+Technological tools such as Quarto documents offer significant progress
+for reproducibility. By integrating code, data, text, and results in a
+single file, Quarto ensures that analyses can be rerun and verified by
+others. This reduces the risks of selective reporting, or errors that
+weaken credibility. Moreover, Quarto´s ability to output to multiple
+formats makes it easier to share reproducible research across
+disciplines. However, while Quarto improves computational
+reproducibility, it cannot guarantee replicability, which requires new
+data and independent confirmation.
+
+Several challenges remain unresolved. Publication bias continues to
+distort the scientific record, while incentive structures in academia
+reward novelty over verification. Replication studies are rarely valued
+or published, reducing researchers´ motivation to attempt them.
+Technical barriers such as missing metadata, proprietary software, and
+inadequate infrastructure further hinder accessibility. Addressing these
+issues requires both cultural change and technical solutions. Policies
+mandating data and code sharing, preregistration of studies, and
+recognition of replication work as valuable contributions are crucial
+steps forward.
+
+Ultimately, a combination of open science practices and technological
+innovation offers the best path forward. While replicability may not yet
+be universal, strengthening reproducibility through transparency and
+tools like Quarto can help rebuild trust and credibility in research.
+
+\section{Conclusion}\label{conclusion}
+
+Reproducibility and replicability are fundamental to scientific
+progress, yet the replication crisis has revealed major shortcomings
+across disciplines. Problems such as publication bias, type I errors,
+and inadequate data sharing undermine trust in research, while cultural
+and institutional incentives often work against replication. At the same
+time, new practices and technologies are helping to address these
+challenges. Open data initiatives, data citation standards, and dynamic
+documents in R and Quarto make it easier to reproduce research, thereby
+increasing transparency and accountability.
+
+This paper concludes that while replicability should remain an
+aspirational goal, reproducibility must be treated as the minimum
+standard. By combining cultural reforms with technological tools, the
+scientific community can take meaningful steps to restore credibility
+and ensure that research provides a reliable foundation for future
+knowledge. Future improvements in training, incentives, and
+infrastructure will be crucial to ensure that reproducibility becomes
+not just a requirement, but a natural part of scientific culture.
+
+\subsection{Appendix: R Session Info}\label{appendix-r-session-info}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+R version 4.5.1 (2025-06-13)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.5
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] no_NO/no_NO/no_NO/C/no_NO/en_US.UTF-8
+
+time zone: Europe/Oslo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] compiler_4.5.1    fastmap_1.2.0     cli_3.6.5         tools_4.5.1      
+ [5] htmltools_0.5.8.1 rstudioapi_0.17.1 yaml_2.3.10       rmarkdown_2.29   
+ [9] knitr_1.50        jsonlite_2.0.0    xfun_0.52         digest_0.6.37    
+[13] rlang_1.1.6       evaluate_1.0.4   
+\end{verbatim}
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-allaire2020b}
+Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins,
+A., Wickham, H., Cheng, J., Chang, W., \& Iannone, R. (2020).
+\emph{Rmarkdown: {Dynamic} documents for r}.
+
+\bibitem[\citeproctext]{ref-barnes2010b}
+Barnes, N. (2010). Publish your computer code: It is good enough.
+\emph{Nature}, \emph{467}(7317), 753--753.
+
+\bibitem[\citeproctext]{ref-brase2009b}
+Brase, J. (2009). {DataCite} - {A Global Registration Agency} for
+{Research Data}. \emph{2009 {Fourth International Conference} on
+{Cooperation} and {Promotion} of {Information Resources} in {Science}
+and {Technology}}, 257--261.
+
+\bibitem[\citeproctext]{ref-broman2018}
+Broman, K. W., \& Woo, K. H. (2018). \emph{Data organization in
+spreadsheets} (No. e3183v2). PeerJ Inc.
+
+\bibitem[\citeproctext]{ref-opensciencecollaboration2015}
+Collaboration, O. S. (2015). Estimating the reproducibility of
+psychological science. \emph{Science}, \emph{349}(6251).
+
+\bibitem[\citeproctext]{ref-gentleman2005b}
+Gentleman, R. (2005). Reproducible {Research}: {A Bioinformatics Case
+Study}. \emph{Statistical Applications in Genetics and Molecular
+Biology}, \emph{4}(1).
+
+\bibitem[\citeproctext]{ref-golub1999c}
+Golub, T. R., Slonim, D. K., Tamayo, P., Huard, C., Gaasenbeek, M.,
+Mesirov, J. P., Coller, H., Loh, M. L., Downing, J. R., Caligiuri, M.
+A., Bloomfield, C. D., \& Lander, E. S. (1999).
+\href{https://www.ncbi.nlm.nih.gov/pubmed/10521349}{Molecular
+classification of cancer: Class discovery and class prediction by gene
+expression monitoring}. \emph{Science (New York, N.Y.)},
+\emph{286}(5439), 531--537.
+
+\bibitem[\citeproctext]{ref-goodman2016b}
+Goodman, S. N., Fanelli, D., \& Ioannidis, J. P. A. (2016). What does
+research reproducibility mean? \emph{Science Translational Medicine},
+\emph{8}(341), 341ps12--341ps12.
+
+\bibitem[\citeproctext]{ref-ioannidis2005b}
+Ioannidis, J. P. A. (30.aug.2005). Why {Most Published Research Findings
+Are False}. \emph{PLOS Medicine}, \emph{2}(8), e124.
+
+\bibitem[\citeproctext]{ref-ioannidis2005}
+Ioannidis, J. P. A. (2005). Why most published research findings are
+false. \emph{PLoS Medicine}, \emph{2}(8), e124.
+\url{https://doi.org/10.1371/journal.pmed.0020124}
+
+\bibitem[\citeproctext]{ref-klein2018b}
+Klein, R. A., Vianello, M., Hasselman, F., Adams, B. G., Reginald B.
+Adams, Jr., Alper, S., Aveyard, M., Axt, J. R., Babalola, M. T., Bahník,
+Š., Batra, R., Berkics, M., Bernstein, M. J., Berry, D. R.,
+Bialobrzeska, O., Binan, E. D., Bocian, K., Brandt, M. J., Busching, R.,
+\ldots{} Nosek, B. A. (2018). Many labs 2: {Investigating} variation in
+replicability across samples and settings. \emph{Advances in Methods and
+Practices in Psychological Science}, \emph{1}(4), 443--490.
+
+\bibitem[\citeproctext]{ref-knuth1984b}
+Knuth, D. E. (1984). Literate {Programming}. \emph{The Computer
+Journal}, \emph{27}(2), 97--111.
+
+\bibitem[\citeproctext]{ref-markowetz2015a}
+Markowetz, F. (2015). Five selfish reasons to work reproducibly.
+\emph{Genome Biology}, \emph{16}(1), 274.
+
+\bibitem[\citeproctext]{ref-nas2019}
+National Academies of Sciences, Engineering, and Medicine. (2019).
+\emph{Reproducibility and replicability in science}. The National
+Academies Press. \url{https://doi.org/10.17226/25303}
+
+\bibitem[\citeproctext]{ref-nosek2015}
+Nosek, B. A., Alter, G., Banks, G. C., Borsboom, D., Bowman, S. D.,
+Breckler, S. J., Buck, S., Chambers, C. D., Chin, G., Christensen, G.,
+Contestabile, M., Dafoe, A., Eich, E., Freese, J., Glennerster, R.,
+Goroff, D., Green, D. P., Hesse, B., Humphreys, M., \ldots{} Yarkoni, T.
+(2015). Promoting an open research culture. \emph{Science},
+\emph{348}(6242), 1422--1425.
+
+\bibitem[\citeproctext]{ref-peng2011}
+Peng, R. D. (2011).
+\href{https://www.ncbi.nlm.nih.gov/pubmed/22144613}{Reproducible
+{Research} in {Computational Science}}. \emph{Science},
+\emph{334}(6060), 1226--1227.
+
+\bibitem[\citeproctext]{ref-piwowar2018}
+Piwowar, H., Priem, J., Larivière, V., Alperin, J. P., Matthias, L.,
+Norlander, B., Farley, A., West, J., \& Haustein, S. (2018). The state
+of {OA}: A large-scale analysis of the prevalence and impact of {Open
+Access} articles. \emph{PeerJ}, \emph{6}, e4375.
+
+\bibitem[\citeproctext]{ref-quarto2023}
+Posit Software, PBC. (2023). \emph{Quarto user guide}.
+
+\bibitem[\citeproctext]{ref-rcoreteam2020a}
+R Core Team. (2020). \emph{R: {A} language and environment for
+statistical computing}. R Foundation for Statistical Computing.
+
+\bibitem[\citeproctext]{ref-starr2015}
+Starr, J., Castro, E., Crosas, M., Dumontier, M., Downs, R. R., Duerr,
+R., Haak, L. L., Haendel, M., Herman, I., Hodson, S., Hourclé, J.,
+Kratz, J. E., Lin, J., Nielsen, L. H., Nurnberger, A., Proell, S.,
+Rauber, A., Sacchi, S., Smith, A., \ldots{} Clark, T. (2015). Achieving
+human and machine accessibility of cited data in scholarly publications.
+\emph{PeerJ Computer Science}, \emph{1}, e1.
+
+\bibitem[\citeproctext]{ref-stodden2016}
+Stodden, V., McNutt, M., Bailey, D. H., Deelman, E., Gil, Y., Hanson,
+B., Heroux, M. A., Ioannidis, J. P. A., \& Taufer, M. (2016). Enhancing
+reproducibility for computational methods. \emph{Science},
+\emph{354}(6317), 1240--1241.
+\url{https://doi.org/10.1126/science.aah6168}
+
+\bibitem[\citeproctext]{ref-binder2019}
+Team, P. J. (2019). \emph{Binder 2.0 -- reproducible, interactive,
+sharable environments for science at scale}.
+
+\bibitem[\citeproctext]{ref-wickham2016}
+Wickham, H., \& Grolemund, G. (2016). \emph{R for data science: Import,
+tidy, transform, visualize, and model data} (pp. XXV, 492). O'Reilly.
+
+\bibitem[\citeproctext]{ref-wilkinson2016}
+Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G.,
+Axton, M., Baak, A., Blomberg, N., Boiten, J. W., Silva Santos, L. B.
+da, Bourne, P. E., Bouwman, J., Brookes, A. J., Clark, T., Crosas, M.,
+Dillo, I., Dumon, O., Edmunds, S., Evelo, C. T., Finkers, R., \ldots{}
+Mons, B. (2016). The FAIR guiding principles for scientific data
+management and stewardship. \emph{Scientific Data}, \emph{3}, 160018.
+\url{https://doi.org/10.1038/sdata.2016.18}
+
+\bibitem[\citeproctext]{ref-xie2015}
+Xie, Y. (2015). \emph{Dynamic documents with {R} and knitr} (Second).
+{Chapman and Hall/CRC}.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}

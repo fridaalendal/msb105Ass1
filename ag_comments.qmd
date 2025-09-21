@@ -1,0 +1,26 @@
+---
+title: "ag Comments"
+format: html
+bibliography: reproducibility-2.bib
+---
+
+## General Comments
+
+-   No problem rendering to html, typst and pdf
+    -   The document is reproducible. Great!
+-   A very nice paper on reproducibility and replicability
+    -   Nice literature review.
+    -   You could perhaps have used some citations also in the “Discussion” section to strengthen your arguments, but still a very nice discussion.
+-   “Literate programming, first described by @knuth1984b …” is correct, but note the following from section *M. RELATED WORK* in @knuth1984b:
+
+> Nothing about WEB is really new; I have simply combined a bunch of ideas that have been in the air for a long time.
+
+Knuth “invented” the term *Literate Programming*, but attribute the central idea behind it to others.
+
+- nice commit messages
+
+## Fixes and tips
+
+-   Fixed typo at end of last sentence introduction.
+-   I would suggest that you also consider using in-line citations more often. See my suggestions for the section “Discipline-specific lessons and exemplar domains”
+    - It brings a bit more variation into the text.
